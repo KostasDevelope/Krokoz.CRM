@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Krokoz.CRM.BL.Enums;
 using Krokoz.CRM.BL.Repositories;
 
 namespace Krokoz.CRM.MVCClient.Controllers
@@ -26,11 +27,11 @@ namespace Krokoz.CRM.MVCClient.Controllers
             var previousPage = Session["PreviousPage"] as string;
             if (!string.IsNullOrEmpty(previousPage))
             {
-                landingPageRepository.InsertLoggingLanding(userName, previousPage, 2);
+                landingPageRepository.InsertLoggingLanding(userName, previousPage, LandingTypeEnum.Exit);
             }
             var absoluteUri = requestContext.HttpContext.Request.Url.AbsoluteUri;
             Session["PreviousPage"] = absoluteUri;
-            landingPageRepository.InsertLoggingLanding(userName, absoluteUri, 1);
+            landingPageRepository.InsertLoggingLanding(userName, absoluteUri, LandingTypeEnum.Entry);
         }
     }
 }
