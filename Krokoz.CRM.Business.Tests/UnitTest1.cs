@@ -1,24 +1,26 @@
 ﻿using System;
+using System.Linq;
 using Krokoz.CRM.BL.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Krokoz.CRM.Business.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTestLandingPageRepository
     {
-        public UnitTest1()
+        public UnitTestLandingPageRepository()
         {
             landingPageRepository = new LandingPageRepository();
         }
-
         private ILandingPageRepository landingPageRepository;
 
         [TestMethod]
-        public void TestMethod1()
+        public void TestGatAllLoggingLanding()
         {
             var model = landingPageRepository.GatAllLoggingLanding();
+            var collection =  model.ToList();
             Assert.IsNotNull(model);
+            Assert.IsTrue(collection.Count != 0);
         }
     }
 }
