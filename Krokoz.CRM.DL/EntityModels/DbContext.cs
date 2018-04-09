@@ -4,19 +4,18 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity.Migrations;
 
 namespace Krokoz.CRM.DL.EntityModels
 {
    public class DbContextCRM : DbContext
    {
-
-        public DbContextCRM():base("name=CRM_DB_Model") { }
-        public virtual DbSet<AspNetRoles> AspNetRolese { get; set; }
-        public virtual DbSet<AspNetUserClaims> AspNetUserClaimse { get; set; }
-        public virtual DbSet<AspNetUserLogins> AspNetUserLoginse { get; set; }
-        public virtual DbSet<AspNetUserRoles> AspNetUserRoles { get; set; }
+       public DbContextCRM() : base("name=CRM_DB_Model") {}
+        //public virtual DbSet<AspNetRoles> AspNetRolese { get; set; }
+        //public virtual DbSet<AspNetUserClaims> AspNetUserClaimse { get; set; }
+        //public virtual DbSet<AspNetUserLogins> AspNetUserLoginse { get; set; }
+        //public virtual DbSet<AspNetUserRoles> AspNetUserRoles { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUserse { get; set; }
-
         public virtual DbSet<LandingType> LandingTypes { get; set; }
         public virtual DbSet<LandingPageName> LandingPageNames { get; set; }
         public virtual DbSet<LoggingLandingPage> LoggingLandingPages { get; set; }
@@ -24,17 +23,108 @@ namespace Krokoz.CRM.DL.EntityModels
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<AspNetRoles>().MapToStoredProcedures();
-            modelBuilder.Entity<AspNetUserClaims>().MapToStoredProcedures();
-            modelBuilder.Entity<AspNetUserLogins>().MapToStoredProcedures();
-            modelBuilder.Entity<AspNetUsers>().MapToStoredProcedures();
+            //Database.SetInitializer(new  DropCreateDatabaseAlways<DbContextCRM>());
+           
+            //modelBuilder.Entity<AspNetRoles>().MapToStoredProcedures();
+            //modelBuilder.Entity<AspNetUserClaims>().MapToStoredProcedures();
+            //modelBuilder.Entity<AspNetUserLogins>().MapToStoredProcedures();
+            //modelBuilder.Entity<AspNetUsers>().MapToStoredProcedures();
+            //modelBuilder.Entity<LandingType>().MapToStoredProcedures();
+            //modelBuilder.Entity<LandingPageName>().MapToStoredProcedures();
+            //modelBuilder.Entity<LoggingLandingPage>().MapToStoredProcedures();
+        }
+    }
+    public partial class init : DbMigration
+    {
+        public override void Up()
+        {
+            CreateTable(
+                "dbo.AspNetRoles",
+                c => new
+                {
+                    Id = c.String(nullable: false, maxLength: 128),
+                    Name = c.String(nullable: false, maxLength: 256),
+                })
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
 
-            modelBuilder.Entity<LandingType>().MapToStoredProcedures();
-            modelBuilder.Entity<LandingPageName>().MapToStoredProcedures();
-            modelBuilder.Entity<LoggingLandingPage>().MapToStoredProcedures();
+            CreateTable(
+                "dbo.AspNetUserRoles",
+                c => new
+                {
+                    UserId = c.String(nullable: false, maxLength: 128),
+                    RoleId = c.String(nullable: false, maxLength: 128),
+                })
+                .PrimaryKey(t => new { t.UserId, t.RoleId })
+                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId)
+                .Index(t => t.RoleId);
+
+            CreateTable(
+                "dbo.AspNetUsers",
+                c => new
+                {
+                    Id = c.String(nullable: false, maxLength: 128),
+                    Email = c.String(maxLength: 256),
+                    EmailConfirmed = c.Boolean(nullable: false),
+                    PasswordHash = c.String(),
+                    SecurityStamp = c.String(),
+                    PhoneNumber = c.String(),
+                    PhoneNumberConfirmed = c.Boolean(nullable: false),
+                    TwoFactorEnabled = c.Boolean(nullable: false),
+                    LockoutEndDateUtc = c.DateTime(),
+                    LockoutEnabled = c.Boolean(nullable: false),
+                    AccessFailedCount = c.Int(nullable: false),
+                    UserName = c.String(nullable: false, maxLength: 256),
+                })
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.UserName, unique: true, name: "UserNameIndex");
+
+            CreateTable(
+                "dbo.AspNetUserClaims",
+                c => new
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    UserId = c.String(nullable: false, maxLength: 128),
+                    ClaimType = c.String(),
+                    ClaimValue = c.String(),
+                })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId);
+
+            CreateTable(
+                "dbo.AspNetUserLogins",
+                c => new
+                {
+                    LoginProvider = c.String(nullable: false, maxLength: 128),
+                    ProviderKey = c.String(nullable: false, maxLength: 128),
+                    UserId = c.String(nullable: false, maxLength: 128),
+                })
+                .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId);
 
         }
 
-       
+        public override void Down()
+        {
+            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
+            DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
+            DropIndex("dbo.AspNetUsers", "UserNameIndex");
+            DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
+            DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
+            DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropTable("dbo.AspNetUserLogins");
+            DropTable("dbo.AspNetUserClaims");
+            DropTable("dbo.AspNetUsers");
+            DropTable("dbo.AspNetUserRoles");
+            DropTable("dbo.AspNetRoles");
+        }
     }
 }

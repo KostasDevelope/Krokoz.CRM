@@ -33,11 +33,32 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/EntityFramework.SqlServer.dll">
       <publishTime>03/02/2015 09:32:26</publishTime>
     </File>
+    <File Include="bin/Krokoz.CRM.Bal.dll">
+      <publishTime>04/09/2018 17:08:49</publishTime>
+    </File>
+    <File Include="bin/Krokoz.CRM.Bal.pdb">
+      <publishTime>04/09/2018 17:08:49</publishTime>
+    </File>
+    <File Include="bin/Krokoz.CRM.BL.dll">
+      <publishTime>04/09/2018 17:08:50</publishTime>
+    </File>
+    <File Include="bin/Krokoz.CRM.BL.pdb">
+      <publishTime>04/09/2018 17:08:50</publishTime>
+    </File>
+    <File Include="bin/Krokoz.CRM.Common.dll">
+      <publishTime>04/09/2018 17:08:49</publishTime>
+    </File>
+    <File Include="bin/Krokoz.CRM.Common.pdb">
+      <publishTime>04/09/2018 17:08:49</publishTime>
+    </File>
     <File Include="bin/Krokoz.CRM.MVCClient.dll">
-      <publishTime>04/09/2018 10:48:28</publishTime>
+      <publishTime>04/09/2018 17:08:54</publishTime>
     </File>
     <File Include="bin/Krokoz.CRM.MVCClient.pdb">
-      <publishTime>04/09/2018 10:48:28</publishTime>
+      <publishTime>04/09/2018 17:08:54</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>03/08/2017 19:26:22</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>11/30/2016 16:07:42</publishTime>
@@ -370,7 +391,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/06/2018 16:37:46</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/09/2018 10:49:03</publishTime>
+      <publishTime>04/09/2018 17:09:28</publishTime>
     </File>
   </ItemGroup>
 </Project>

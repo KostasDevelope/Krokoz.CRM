@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Krokoz.CRM.DL.EntityModels
 {
+    [Table("LandingPageName")]
+
     public  class LandingPageName
     {
         public LandingPageName()
@@ -15,6 +18,7 @@ namespace Krokoz.CRM.DL.EntityModels
         }
         [Key]
         [Required]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
         [MaxLength(256)]
         [Required]

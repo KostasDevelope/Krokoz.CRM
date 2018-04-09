@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Krokoz.CRM.DL.EntityModels
 {
+    [Table("LandingType")]
     public class LandingType
     {
         public LandingType()
@@ -16,11 +17,11 @@ namespace Krokoz.CRM.DL.EntityModels
         }
         [Key]
         [Required]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
         public DateTime Created { get; set; }
         public DateTime? Modified { get; set; }
         [Required]
-        [MaxLength(256)]
         public int Type { get; set; }
         public virtual ICollection<LoggingLandingPage> LoggingLandingPages { get; set; }
     }

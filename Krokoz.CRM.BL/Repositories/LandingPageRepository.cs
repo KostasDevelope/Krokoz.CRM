@@ -17,6 +17,7 @@ namespace Krokoz.CRM.BL.Repositories
                          join lt in DbContextCRM.LandingTypes on llp.LandingTypeId equals lt.Id
                          join user in DbContextCRM.AspNetUserse on llp.UserId equals user.Id into joinUserEmp
                          from user in joinUserEmp.DefaultIfEmpty()
+                         orderby llp.Created descending, llp.LandingPageNameId
                          select new LoggingLandingPageModel
                          {
                              PageName = lpn.PageName, 
@@ -54,7 +55,8 @@ namespace Krokoz.CRM.BL.Repositories
             {
                 LandingPageName = landingpage,
                 LandingType = landingTyp,
-                User = user
+                Created = DateTime.UtcNow,
+                UserId = user != null ? user.Id : string.Empty
             };
             DbContextCRM.LoggingLandingPages.Add(loggingLandingPage);
             return DbContextCRM.SaveChanges();

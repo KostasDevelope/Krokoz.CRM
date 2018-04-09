@@ -8,25 +8,22 @@ using System.Threading.Tasks;
 
 namespace Krokoz.CRM.DL.EntityModels
 {
-   public class LoggingLandingPage
+    [Table("LoggingLandingPage")]
+    public class LoggingLandingPage
     {
         [Key]
         [Required]
         public long Id { get; set; }
 
-        [ForeignKey("UserId")]
-        [Required]
         public string UserId { get; set; }
-       
-        [ForeignKey("UserId")]
+ 
         public long LandingPageNameId { get; set; }
 
-        [ForeignKey("LandingTypeId")]
         [Required]
         public long LandingTypeId { get; set; }
         public DateTime Created { get; set; }
 
-        public virtual AspNetUsers User { get; set; }
+        //public virtual AspNetUsers User { get; set; }
         public virtual LandingType LandingType { get; set; }
         public virtual LandingPageName LandingPageName { get; set; }
     }
