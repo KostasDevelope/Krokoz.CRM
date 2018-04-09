@@ -1,0 +1,6 @@
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Common\bin\Debug\Krokoz.CRM.Common.dll
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Common\bin\Debug\Krokoz.CRM.Common.pdb
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Common\bin\Debug\log4net.dll
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Common\bin\Debug\log4net.xml
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Common\obj\Debug\Krokoz.CRM.Common.dll
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Common\obj\Debug\Krokoz.CRM.Common.pdb

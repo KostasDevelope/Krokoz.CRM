@@ -1,0 +1,12 @@
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Business.Tests\bin\Debug\Krokoz.CRM.Business.Tests.dll.config
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Business.Tests\bin\Debug\Krokoz.CRM.Business.Tests.dll
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Business.Tests\bin\Debug\Krokoz.CRM.Business.Tests.pdb
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Business.Tests\bin\Debug\Krokoz.CRM.Common.dll
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Business.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Business.Tests\bin\Debug\log4net.dll
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Business.Tests\bin\Debug\Krokoz.CRM.Common.pdb
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Business.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Business.Tests\bin\Debug\log4net.xml
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Business.Tests\obj\Debug\Krokoz.CRM.Business.Tests.csprojResolveAssemblyReference.cache
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Business.Tests\obj\Debug\Krokoz.CRM.Business.Tests.dll
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Business.Tests\obj\Debug\Krokoz.CRM.Business.Tests.pdb

@@ -1,0 +1,4 @@
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Resources\bin\Debug\Krokoz.CRM.Resources.dll
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Resources\bin\Debug\Krokoz.CRM.Resources.pdb
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Resources\obj\Debug\Krokoz.CRM.Resources.dll
+D:\STRUGGLE_ENDLESSLY\Krokoz_CRM\Krokoz.CRM\Krokoz.CRM.Resources\obj\Debug\Krokoz.CRM.Resources.pdb
