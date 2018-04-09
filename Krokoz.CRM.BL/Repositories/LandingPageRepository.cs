@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Krokoz.CRM.BL.Enums;
 using Krokoz.CRM.BL.Models;
 using Krokoz.CRM.DL.EntityModels;
 
@@ -27,15 +28,15 @@ namespace Krokoz.CRM.BL.Repositories
                          };
             return result;
         }
-        public int InsertLoggingLanding(string userName, string pageName, int type)
+        public int InsertLoggingLanding(string userName, string pageName, LandingTypeEnum landingTypeEnum)
         {
-            var landingTyp = DbContextCRM.LandingTypes.FirstOrDefault(s => s.Type == type);
+            var landingTyp = DbContextCRM.LandingTypes.FirstOrDefault(s => s.Type == (int)landingTypeEnum);
             if (landingTyp == null)
             {
                 landingTyp = new LandingType
                 {
                     Created = DateTime.UtcNow,
-                    Type = type
+                    Type = (int)landingTypeEnum
                 };
                 DbContextCRM.LandingTypes.Add(landingTyp);
             }
